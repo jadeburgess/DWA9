@@ -1,8 +1,12 @@
 import { books, authors, genres, BOOKS_PER_PAGE } from './data.js';
+import { createBookElement } from './helper.js';
+
 
 let page = 1;
 let matches = books;
- 
+
+//book preview abstraction
+
 function createBookElement({ author, id, image, title }) { //function takes a book object as input and creates an HTML element representing the book.
   const element = document.createElement('button');
   element.classList = 'preview'; //Creates button element with class 'preview' and sets data-preview attribute to book's ID. 
@@ -65,7 +69,7 @@ function applyTheme() { //Function applies appropriate theme based on user's pre
   }
 }
 
-function handleSearchFormSubmit(event) { //Fuction handles submission of search form.
+function handleSearchFormSubmit(event) { //Function handles submission of search form.
   event.preventDefault(); //Takes event object as input.
   const formData = new FormData(event.target); //Prevents default form submission behavior.
   const filters = Object.fromEntries(formData); //Extracts form data using FormData.
@@ -107,7 +111,7 @@ function handleListButtonClick() { //Function handles click even on 'Show more' 
     fragment.appendChild(element); //Appends created book elements to document fragment.
   }
 
-  document.querySelector('[data-list-items]').appendChild(fragment); //Appends doucment fragment to listItemsElement and increments page counter.
+  document.querySelector('[data-list-items]').appendChild(fragment); //Appends document fragment to listItemsElement and increments page counter.
   page += 1;
 }
 
