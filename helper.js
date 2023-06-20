@@ -2,6 +2,18 @@
 import { books, authors, genres, BOOKS_PER_PAGE } from './data.js';
 
 
+//defines javascript type definition using JSDoc syntax -describes properties of an object called bookPreviewElements
+/**
+ * @typedef {Object} BookPreviewProperties 
+ * @prop {HTMLDialogElement} overlay //used as an overlay/modal dialog that appears on top of main content
+ * @prop {HTMLImageElement} image //image element that displays book's image
+ * @prop {HTMLHeadElement} title //h3 element that displays book's title
+ * @prop {HTMLDivElement} subtitle //div element that contains book's author
+ * @prop {HTMLParagraphElement} description //p element that contains book's description
+ * @prop {HTMLButtonElement} close //button element that closes overlay
+ * 
+ */
+
 //defines helper function createBookElement to create preview
 export function createBookElement(book) { 
     const { author, id, image, title } = book; //uses destructuring to extract data from book object

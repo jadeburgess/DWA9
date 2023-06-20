@@ -1,5 +1,6 @@
 import { books, authors, genres, BOOKS_PER_PAGE } from './data.js';
 import { createBookElement } from './helper.js';
+import { BookPreview } from './book-preview.js';
 
 
 let page = 1;
